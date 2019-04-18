@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rob Cornish</title>
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     <link href="styles.css" rel="stylesheet" type="text/css">
+
+    <title>Rob Cornish</title>
   </head>
   <body>
     <header>
@@ -14,15 +15,15 @@
       <!-- TODO: Make this wrap -->
       <nav>
         <ul>
-          <li><a href="#" class="selected">About</a></li>
-          <li><a href="#">Publications</a></li>
-          <li><a href="#">Google Scholar</a></li>
+          <li><a href="#" id="nav-about" onclick="select(this.id)">About</a></li>
+          <li><a href="#" id="nav-publications" onclick="select(this.id)">Publications</a></li>
+          <li><a href="https://scholar.google.com/citations?user=ZDVQRN0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
         </ul>
       </nav>
       <div class="divider"></div>
     </header>
 
-    <main>
+    <main id="about" hidden>
       <!-- TODO: make actual image smaller -->
       <div id="image">
           <img src="photo-new-cropped.jpg" alt="Rob Cornish">
@@ -37,16 +38,33 @@
       </aside>
     </main>
 
+    <main id="publications" hidden>
+      <h2>Publications</h2>
+    </main>
+
     <footer>
       &copy; 2019 Rob Cornish
     </footer>
     
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <!-- <script>
-    // $(window).on("load", function (){
-      // alert("Heyy");
-    // });
-  </script> -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+    <script>
+      function select(navId) {
+        if (navId == "nav-scholar") {
+          open()
+        } else {
+          $("nav ul a").removeClass("selected");
+          $("nav ul a#" + navId).addClass("selected");
+
+          $("main").attr("hidden", "");
+          $("main#" + navId.replace(/^nav-/, "")).removeAttr("hidden");
+        }
+      }
+
+      $(document).ready(function (){
+        select("nav-about");
+      });
+    </script>
 </body>
 </html>

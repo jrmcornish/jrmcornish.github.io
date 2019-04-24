@@ -103,6 +103,12 @@ ul#publist li {
 ul#publist ul {
   padding: 0;
   text-align: right;
+  list-style: none;
+}
+
+ul#publist ul li {
+  display: inline-block;
+  margin: 0 0 0 10px;
 }
 
 ul#publist ul a {

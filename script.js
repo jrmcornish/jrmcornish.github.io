@@ -1,28 +1,39 @@
 function pubJSONToHTML(json) {
   console.log("HERE");
   var inner = json.publications.map(function(pub) {
-    return (
-      "<li>" +
-      "<strong>" + pub.title + "</strong><br>" +
-      pub.authors.map(function(authorId) {
+
+    let authorText = pub.authors.map(function(authorId) {
         var website = json.coauthors[authorId].website;
         var author = json.coauthors[authorId].name;
         if (authorId === "me") {
-          return "<em>" + author + "</em>";
+          return `<em>${author}</em>`;
         } else if (website) {
-          return "<a href=\"" + website + "\" target=\"_blank\">" + author + "</a>";
+          return `<a href="${website}" target="_blank">${author}</a>`;
         } else {
           return author;
         }
-      }).join(", ") + "<br>" + pub.year + "<br>" +
-      "<ul>" +
-        (pub.arxiv ? "<a href=\"" + pub.arxiv + "\" target=\"_blank\">arxiv</a>" + "<br>" : "") +
-        (pub.pdf ? "<a href=\"" + pub.pdf + "\" target=\"_blank\">pdf</a>" + "<br>" : "") +
-      "</ul>" +
-      "</li>"
+      }).join(", ") 
+    
+    let contentType = pub.arxiv ? "arxiv" : "pdf";
+    let contentLink = `<a href="${pub[contentType]}" target="_blank">${contentType}</a>`;
+
+    let bibLink = `<a href="#">bib</a>`
+
+    return (
+      `
+      <li>
+        <strong>${pub.title}</strong><br>
+        ${authorText}<br>
+        ${pub.year}<br>
+        <ul>
+          <li>${contentLink}</li>
+          <li>${bibLink}</li>
+        </ul>
+      </li>
+      `
     );
   }).join("");
-  return "<ul id=\"publist\">" + inner + "</ul>";
+  return `<ul id="publist">${inner}</ul>`;
 }
 
 $.getJSON("publications.json", function(json) {

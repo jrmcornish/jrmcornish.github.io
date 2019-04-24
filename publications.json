@@ -1,0 +1,40 @@
+{
+  "publications": [
+    {
+      "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
+      "authors": ["me", "vanetti", "abc", "george", "arnaud"],
+      "year": 2019,
+      "arxiv": "https://arxiv.org/abs/1901.09881"
+    },
+    {
+      "title": "Submodular Optimization via Reinforcement Learning",
+      "authors": ["me", "torr"],
+      "year": 2016,
+      "pdf": "http://www.robots.ox.ac.uk/~rcornish/assets/bib/preprint/cornish2016submodular.pdf"
+    }
+  ],
+  "coauthors": {
+    "vanetti": {
+      "name": "Paul Vanetti"
+    },
+    "me": {
+      "name": "Rob Cornish"
+    },
+    "abc": {
+      "name": "Alexandre Bouchard-Côté",
+      "website":  "https://www.stat.ubc.ca/~bouchard/"
+    },
+    "george": {
+      "name": "George Deligiannidis",
+      "website": "http://www.stats.ox.ac.uk/~deligian/"
+    },
+    "arnaud": {
+      "name": "Arnaud Doucet",
+      "website": "http://www.stats.ox.ac.uk/~doucet/"
+    },
+    "torr": {
+      "name": "Philip Torr",
+      "website": "http://www.robots.ox.ac.uk/~phst/"
+    }
+  }
+}

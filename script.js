@@ -1,3 +1,36 @@
+function pubJSONToHTML(json) {
+  console.log("HERE");
+  var inner = json.publications.map(function(pub) {
+    return (
+      "<li>" +
+      "<strong>" + pub.title + "</strong><br>" +
+      pub.authors.map(function(authorId) {
+        var website = json.coauthors[authorId].website;
+        var author = json.coauthors[authorId].name;
+        if (authorId === "me") {
+          return "<em>" + author + "</em>";
+        } else if (website) {
+          return "<a href=\"" + website + "\" target=\"_blank\">" + author + "</a>";
+        } else {
+          return author;
+        }
+      }).join(", ") + "<br>" + pub.year + "<br>" +
+      "<ul>" +
+        (pub.arxiv ? "<a href=\"" + pub.arxiv + "\" target=\"_blank\">arxiv</a>" + "<br>" : "") +
+        (pub.pdf ? "<a href=\"" + pub.pdf + "\" target=\"_blank\">pdf</a>" + "<br>" : "") +
+      "</ul>" +
+      "</li>"
+    );
+  }).join("");
+  return "<ul id=\"publist\">" + inner + "</ul>";
+}
+
+$.getJSON("publications.json", function(json) {
+  $("main#publications").html(pubJSONToHTML(json));
+});
+
+////////
+
 function Page(name) {
   this.navLink = document.getElementById("nav-" + name);
   this.main = document.getElementById(name);
@@ -30,4 +63,4 @@ pages.forEach(function (page) {
   });
 });
 
-navTo(pages[0]);
+navTo(pages[1]);

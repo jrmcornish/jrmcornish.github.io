@@ -90,3 +90,23 @@ footer {
   text-align: center;
   color: gray;
 }
+
+ul#publist {
+  list-style: none;
+  padding: 0;
+}
+
+ul#publist li {
+  margin: 25px 0;
+}
+
+ul#publist ul {
+  padding: 0;
+  text-align: right;
+}
+
+ul#publist ul a {
+  font-family: Consolas;
+  color: #757575;
+  text-decoration: none;
+}

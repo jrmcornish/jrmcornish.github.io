@@ -91,28 +91,41 @@ footer {
   color: gray;
 }
 
-ul#publist {
+#pubs ul {
   list-style: none;
   padding: 0;
 }
 
-ul#publist li {
+#publist > li {
   margin: 25px 0;
 }
 
-ul#publist ul {
-  padding: 0;
-  text-align: right;
-  list-style: none;
-}
-
-ul#publist ul li {
+.publinks li {
   display: inline-block;
-  margin: 0 0 0 10px;
+  margin-right: 10px;
 }
 
-ul#publist ul a {
+.publinks a {
   font-family: Consolas;
   color: #757575;
   text-decoration: none;
+}
+
+.codeblock {
+  padding: 16px;
+  background: #f0f0f0;
+  /* border: 1px solid #ddd; */
+  border: none;
+  display: none;
+  transition: display 0.7s;
+  overflow-x: scroll;
+  overflow: auto;
+  line-height: 2;
+  text-align: left;
+}
+
+#publist pre {
+  margin: 0;
+  font-family: Consolas;
+  font-size: .75em;
 }

@@ -1,10 +1,11 @@
-function pubJSONToHTML(json) {
-  console.log("HERE");
-  var inner = json.publications.map(function(pub) {
+"use strict";
+
+function pubJSONToHTML(pubs) {
+  var inner = pubs.publications.map(function(pub) {
 
     let authorText = pub.authors.map(function(authorId) {
-        var website = json.coauthors[authorId].website;
-        var author = json.coauthors[authorId].name;
+        var website = pubs.coauthors[authorId].website;
+        var author = pubs.coauthors[authorId].name;
         if (authorId === "me") {
           return `<em>${author}</em>`;
         } else if (website) {
@@ -15,29 +16,63 @@ function pubJSONToHTML(json) {
       }).join(", ") 
     
     let contentType = pub.arxiv ? "arxiv" : "pdf";
-    let contentLink = `<a href="${pub[contentType]}" target="_blank">${contentType}</a>`;
+    let contentURL;
+    if (contentType === "arxiv") {
+      contentURL = `https://arxiv.org/abs/${pub.arxiv}`;
+    } else {
+      contentURL = `pdf/${pub.id}.pdf`
+    }
 
-    let bibLink = `<a href="#">bib</a>`
+    let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
 
-    return (
-      `
+    let bibLink = `<a href="#" id="toggle-${pub.id}" class="bibLink">bib</a>`
+
+    return `
       <li>
-        <strong>${pub.title}</strong><br>
-        ${authorText}<br>
-        ${pub.year}<br>
-        <ul>
+        <ul class="pubinfo">
+          <li><strong>${pub.title}</strong></li>
+          <li>${authorText}</li>
+          <li>${pub.year}</li>
+        </ul>
+        <ul class="publinks">
           <li>${contentLink}</li>
           <li>${bibLink}</li>
         </ul>
+        <div id="${pub.id}" class="codeblock">
+          <code><pre>${pub.bib}</pre></code>
+        </div>
       </li>
-      `
-    );
+    `;
   }).join("");
   return `<ul id="publist">${inner}</ul>`;
 }
 
-$.getJSON("publications.json", function(json) {
-  $("main#publications").html(pubJSONToHTML(json));
+function addBibLinks(pubs, i, cont) {
+  $.get(`bib/${pubs.publications[i].id}.bib`, function(text) {
+    pubs.publications[i].bib = text;
+    i += 1;
+    if (i < pubs.publications.length) {
+      addBibLinks(pubs, i, cont);
+    } else {
+      cont(pubs);
+    }
+  }, `text`)
+}
+
+function renderPubs(pubs) {
+  $("main#pubs").html(pubJSONToHTML(pubs));
+
+  $("ul#publist .bibLink").each(function (i, elt) {
+    let id = elt.id.replace("toggle-", "");
+    elt.addEventListener("click", function() {
+      $(`ul#publist #${id}`).toggle();
+    });
+  });
+}
+
+
+$.getJSON("pubs.json", function(pubs) {
+  addBibLinks(pubs, 0, renderPubs);
 });
 
 ////////
@@ -57,7 +92,7 @@ function Page(name) {
   };
 }
 
-var pages = ["about", "publications"].map(function(name) {
+var pages = ["about", "pubs"].map(function(name) {
     return new Page(name);
 });
 

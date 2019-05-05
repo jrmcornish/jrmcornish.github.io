@@ -1,20 +1,25 @@
 "use strict";
 
-function pubJSONToHTML(pubs) {
-  var inner = pubs.publications.map(function(pub) {
+function pubJSONToHTML(papers) {
+  // Stable sort papers by year
+  papers.papers.sort((a, b) => {
+    let result = b.year - a.year;
+    if (result === 0) {
+      return papers.papers.indexOf(a) - papers.papers.indexOf(b);
+    }
+    return result;
+  })
+
+  var inner = papers.papers.map(function(pub) {
 
     let authorText = pub.authors.map(function(authorId) {
-        var website = pubs.coauthors[authorId].website;
-        var author = pubs.coauthors[authorId].name;
         if (authorId === "me") {
-          return `<em>${author}</em>`;
-        } else if (website) {
-          return `<a href="${website}" target="_blank">${author}</a>`;
+          return `<em class="me">Rob Cornish</em>`;
         } else {
-          return author;
+          return authorId;
         }
       }).join(", ") 
-    
+
     let contentType = pub.arxiv ? "arxiv" : "pdf";
     let contentURL;
     if (contentType === "arxiv") {
@@ -23,56 +28,58 @@ function pubJSONToHTML(pubs) {
       contentURL = `pdf/${pub.id}.pdf`
     }
 
+    let publisherInfo = `<em>${(pub.publishedAt || "Preprint")}, ${pub.year.toString()}</em>`;
+
     let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
 
     let bibLink = `<a href="#" id="toggle-${pub.id}" class="bibLink">bib</a>`
 
     return `
       <li>
-        <ul class="pubinfo">
+        <ul>
           <li><strong>${pub.title}</strong></li>
           <li>${authorText}</li>
-          <li>${pub.year}</li>
+          <li>${publisherInfo}</li>
         </ul>
         <ul class="publinks">
           <li>${contentLink}</li>
           <li>${bibLink}</li>
         </ul>
-        <div id="${pub.id}" class="codeblock">
+        <div id="${pub.id}-bib" class="codeblock">
           <code><pre>${pub.bib}</pre></code>
         </div>
       </li>
     `;
   }).join("");
-  return `<ul id="publist">${inner}</ul>`;
+  return `<ul id="paperlist">${inner}</ul>`;
 }
 
-function addBibLinks(pubs, i, cont) {
-  $.get(`bib/${pubs.publications[i].id}.bib`, function(text) {
-    pubs.publications[i].bib = text;
+function addBibLinks(papers, i, cont) {
+  $.get(`bib/${papers.papers[i].id}.bib`, function(text) {
+    papers.papers[i].bib = text;
     i += 1;
-    if (i < pubs.publications.length) {
-      addBibLinks(pubs, i, cont);
+    if (i < papers.papers.length) {
+      addBibLinks(papers, i, cont);
     } else {
-      cont(pubs);
+      cont(papers);
     }
   }, `text`)
 }
 
-function renderPubs(pubs) {
-  $("main#pubs").html(pubJSONToHTML(pubs));
+function renderPubs(papers) {
+  $("main#papers").html(pubJSONToHTML(papers));
 
-  $("ul#publist .bibLink").each(function (i, elt) {
+  $("ul#paperlist .bibLink").each(function (i, elt) {
     let id = elt.id.replace("toggle-", "");
     elt.addEventListener("click", function() {
-      $(`ul#publist #${id}`).toggle();
+      $(`#${id}-bib`).toggle();
     });
   });
 }
 
 
-$.getJSON("pubs.json", function(pubs) {
-  addBibLinks(pubs, 0, renderPubs);
+$.getJSON("papers.json", function(papers) {
+  addBibLinks(papers, 0, renderPubs);
 });
 
 ////////
@@ -92,7 +99,7 @@ function Page(name) {
   };
 }
 
-var pages = ["about", "pubs"].map(function(name) {
+var pages = ["about", "papers"].map(function(name) {
     return new Page(name);
 });
 

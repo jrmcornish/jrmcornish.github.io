@@ -1,0 +1,62 @@
+{
+  "papers": [
+    {
+      "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
+      "id": "cornish2019scalable",
+      "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "arxiv": "1901.09881"
+    },
+    {
+      "title": "Online Learning Rate Adaptation with Hypergradient Descent",
+      "id": "baydin2018online",
+      "authors": ["me", "Atılım Güneş Baydin", "David Rubio", "Mark Schmidt", "Frank Wood"],
+      "year": 2018,
+      "publishedAt": "International Conference on Learning Representations (ICLR)",
+      "arxiv": "1703.04782"
+    },
+    {
+      "title": "On Nesting Monte Carlo Estimators",
+      "id": "rainforth2018nesting",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Andrew Warrington", "Frank Wood"],
+      "year": 2018,
+      "publishedAt": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1709.06181"
+    },
+    {
+      "title": "Analyzing Array Manipulating Programs by Program Transformation",
+      "id": "cornish2015analyzing",
+      "authors": ["me", "Graeme Gange", "Jorge Navas", "Peter Schachte", "Harald Søndergaard", "Peter Stuckey"],
+      "year": 2015,
+      "publishedAt": "Logic-Based Program Synthesis and Transformation: Proceedings of the 24th International Symposium"
+    },
+    {
+      "title": "Efficient exact inference in discrete Anglican programs",
+      "id": "cornish2017efficient",
+      "authors": ["me", "Frank Wood", "Hongseok Yang"],
+      "year": 2017,
+      "publishedAt": "POPL workshop on Probabilistic Programming Semantics (PPS)"
+    },
+    {
+      "title": "Towards a testable notion of generalisation for generative adversarial networks",
+      "id": "cornish2017towards",
+      "authors": ["me", "Frank Wood", "Honseok Yang"],
+      "year": 2017,
+      "publishedAt": "NIPS workshop on Deep Learning: Bridging Theory and Practice"
+    },
+    {
+      "title": "On the Pitfalls of Nested Monte Carlo",
+      "id": "rainforth2016pitfalls",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Frank Wood"],
+      "year": 2016,
+      "publishedAt": "NIPS Workshop on Advances in Approximate Bayesian Inference",
+      "arxiv": 1612.00951
+    },
+    {
+      "title": "Submodular Optimization via Reinforcement Learning",
+      "id": "cornish2016submodular",
+      "authors": ["me", "Philip Torr"],
+      "year": 2016
+    }
+  ]
+}

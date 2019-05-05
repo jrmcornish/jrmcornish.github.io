@@ -91,13 +91,18 @@ footer {
   color: gray;
 }
 
-#pubs ul {
+#papers ul {
   list-style: none;
   padding: 0;
 }
 
-#publist > li {
+#paperlist > li {
   margin: 25px 0;
+}
+
+#paperlist .me {
+  text-decoration: underline;
+  font-style: normal;
 }
 
 .publinks li {
@@ -117,14 +122,13 @@ footer {
   /* border: 1px solid #ddd; */
   border: none;
   display: none;
-  transition: display 0.7s;
   overflow-x: scroll;
   overflow: auto;
   line-height: 2;
   text-align: left;
 }
 
-#publist pre {
+#paperlist pre {
   margin: 0;
   font-family: Consolas;
   font-size: .75em;

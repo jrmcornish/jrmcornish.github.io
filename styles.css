@@ -105,12 +105,12 @@ footer {
   font-style: normal;
 }
 
-.publinks li {
+.paperlinks li {
   display: inline-block;
   margin-right: 10px;
 }
 
-.publinks a {
+.paperlinks a {
   font-family: Consolas;
   color: #757575;
   text-decoration: none;

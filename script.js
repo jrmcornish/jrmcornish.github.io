@@ -1,6 +1,6 @@
 "use strict";
 
-function pubJSONToHTML(papers) {
+function papersJSONToHTML(papers) {
   // Stable sort papers by year
   papers.papers.sort((a, b) => {
     let result = b.year - a.year;
@@ -10,9 +10,9 @@ function pubJSONToHTML(papers) {
     return result;
   })
 
-  var inner = papers.papers.map(function(pub) {
+  var inner = papers.papers.map(function(paper) {
 
-    let authorText = pub.authors.map(function(authorId) {
+    let authorText = paper.authors.map(function(authorId) {
         if (authorId === "me") {
           return `<em class="me">Rob Cornish</em>`;
         } else {
@@ -20,33 +20,33 @@ function pubJSONToHTML(papers) {
         }
       }).join(", ") 
 
-    let contentType = pub.arxiv ? "arxiv" : "pdf";
+    let contentType = paper.arxiv ? "arxiv" : "pdf";
     let contentURL;
     if (contentType === "arxiv") {
-      contentURL = `https://arxiv.org/abs/${pub.arxiv}`;
+      contentURL = `https://arxiv.org/abs/${paper.arxiv}`;
     } else {
-      contentURL = `pdf/${pub.id}.pdf`
+      contentURL = `pdf/${paper.id}.pdf`
     }
 
-    let pubInfo = `<em>${(pub.pubinfo || "Preprint")}, ${pub.year.toString()}</em>`;
+    let paperInfo = `<em>${(paper.paperinfo || "Preprint")}, ${paper.year.toString()}</em>`;
 
     let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
 
-    let bibLink = `<a href="#" id="toggle-${pub.id}" class="bibLink">bib</a>`
+    let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink">bib</a>`
 
     return `
       <li>
         <ul>
-          <li><strong>${pub.title}</strong></li>
+          <li><strong>${paper.title}</strong></li>
           <li>${authorText}</li>
-          <li>${pubInfo}</li>
+          <li>${paperInfo}</li>
         </ul>
-        <ul class="publinks">
+        <ul class="paperlinks">
           <li>${contentLink}</li>
           <li>${bibLink}</li>
         </ul>
-        <div id="${pub.id}-bib" class="codeblock">
-          <code><pre>${pub.bib}</pre></code>
+        <div id="${paper.id}-bib" class="codeblock">
+          <code><pre>${paper.bib}</pre></code>
         </div>
       </li>
     `;
@@ -66,8 +66,8 @@ function addBibLinks(papers, i, cont) {
   }, `text`)
 }
 
-function renderPubs(papers) {
-  $("main#papers").html(pubJSONToHTML(papers));
+function renderPapers(papers) {
+  $("main#papers").html(papersJSONToHTML(papers));
 
   $("ul#paperlist .bibLink").each(function (i, elt) {
     let id = elt.id.replace("toggle-", "");
@@ -80,7 +80,7 @@ function renderPubs(papers) {
 
 
 $.getJSON("papers.json", function(papers) {
-  addBibLinks(papers, 0, renderPubs);
+  addBibLinks(papers, 0, renderPapers);
 });
 
 ////////

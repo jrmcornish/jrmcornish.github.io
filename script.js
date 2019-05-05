@@ -28,7 +28,7 @@ function pubJSONToHTML(papers) {
       contentURL = `pdf/${pub.id}.pdf`
     }
 
-    let publisherInfo = `<em>${(pub.publishedAt || "Preprint")}, ${pub.year.toString()}</em>`;
+    let pubInfo = `<em>${(pub.pubinfo || "Preprint")}, ${pub.year.toString()}</em>`;
 
     let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
 
@@ -39,7 +39,7 @@ function pubJSONToHTML(papers) {
         <ul>
           <li><strong>${pub.title}</strong></li>
           <li>${authorText}</li>
-          <li>${publisherInfo}</li>
+          <li>${pubInfo}</li>
         </ul>
         <ul class="publinks">
           <li>${contentLink}</li>
@@ -71,7 +71,8 @@ function renderPubs(papers) {
 
   $("ul#paperlist .bibLink").each(function (i, elt) {
     let id = elt.id.replace("toggle-", "");
-    elt.addEventListener("click", function() {
+    elt.addEventListener("click", function(e) {
+      e.preventDefault();
       $(`#${id}-bib`).toggle();
     });
   });

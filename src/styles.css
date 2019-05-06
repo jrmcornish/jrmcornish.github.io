@@ -140,6 +140,10 @@ a.util {
   margin-right: 10px;
 }
 
+.bib-data {
+  margin-top: 6px;
+}
+
 .copy-bib {
 background-color: #e0e0e0;
 text-align: right;
@@ -153,5 +157,6 @@ pre {
   font-family: Inconsolata, monospace;
   font-size: .75em;
   overflow-x: scroll;
+  overflow: auto;
   line-height: 2;
 }

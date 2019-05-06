@@ -1,7 +1,7 @@
 "use strict";
 
 function paperToHTML(paper) {
-  let authorText = paper.authors.map(function(authorId) {
+  const authorText = paper.authors.map(function(authorId) {
       if (authorId === "me") {
         return `<em class="me">Rob Cornish</em>`;
       } else {
@@ -9,7 +9,7 @@ function paperToHTML(paper) {
       }
     }).join(", ") 
 
-  let contentType = paper.arxiv ? "arxiv" : "pdf";
+  const contentType = paper.arxiv ? "arxiv" : "pdf";
   let contentURL;
   if (contentType === "arxiv") {
     contentURL = `https://arxiv.org/abs/${paper.arxiv}`;
@@ -17,11 +17,11 @@ function paperToHTML(paper) {
     contentURL = `pdf/${paper.id}.pdf`
   }
 
-  let paperInfo = `<em>${(paper.pubinfo || "Preprint")}, ${paper.year.toString()}</em>`;
+  const paperInfo = `<em>${(paper.pubinfo || "Preprint")}, ${paper.year.toString()}</em>`;
 
-  let contentLink = `<a href="${contentURL}" target="_blank" class="util">${contentType}</a>`;
+  const contentLink = `<a href="${contentURL}" target="_blank" class="util">${contentType}</a>`;
 
-  let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink util">bib</a>`
+  const bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink util">bib</a>`
 
   return `
     <li>
@@ -46,9 +46,9 @@ function paperToHTML(paper) {
 
 // sortDir > 0 to sort papers descending by year
 function papersToHTML(papers, sortBy, cmp, sortDir) {
-  let [html, _] = papers.reduce(function([html, prevPaper], paper) {
-    let sortVal = paper[sortBy];
-    let prevSortVal = prevPaper === undefined ? undefined : prevPaper[sortBy];
+  const [html, _] = papers.reduce(function([html, prevPaper], paper) {
+    const sortVal = paper[sortBy];
+    const prevSortVal = prevPaper === undefined ? undefined : prevPaper[sortBy];
 
     let result = "";
     if (prevSortVal === undefined || sortDir * cmp(prevPaper, paper) < 0) {
@@ -67,14 +67,14 @@ function cmpByYear(paper1, paper2) {
 }
 
 function cmpByType(paper1, paper2) {
-  let order = ["conference", "workshop", "preprint"]
+  const order = ["conference", "workshop", "preprint"]
   return order.indexOf(paper1.type) - order.indexOf(paper2.type);
 }
 
 function papersStableSort(cmp) {
-  let papers = window.papersData;
+  const papers = window.papersData;
   papers.sort((a, b) => {
-    let result = window.papersSortDir * cmp(a, b);
+    const result = window.papersSortDir * cmp(a, b);
     if (result === 0) {
       return papers.indexOf(a) - papers.indexOf(b);
     }
@@ -128,10 +128,10 @@ function renderPapers() {
 }
 
 function renderSortLinks() {
-  let arrow = window.papersSortDir > 0 ? "↓" : "↑";
+  const arrow = window.papersSortDir > 0 ? "↓" : "↑";
 
   ["year", "type"].forEach((sortBy) => {
-    let div = $(`#sort-by-${sortBy} .sort-arrow`);
+    const div = $(`#sort-by-${sortBy} .sort-arrow`);
     div.html(arrow);
     if (window.papersSortBy === sortBy) {
       div.css("visibility", "visible");
@@ -227,7 +227,7 @@ navTo(pages[0]);
 
 $("#email").on("click", (e) => {
   e.preventDefault();
-  let address = ["rcornish", "@", "robots.", "ox.", "ac.", "uk"].join("");
+  const address = ["rcornish", "@", "robots.", "ox.", "ac.", "uk"].join("");
   $("#email")
     .html(address)
     .attr("href", `mailto:${address}`);

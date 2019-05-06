@@ -95,7 +95,7 @@ footer {
   text-transform: capitalize;
 }
 
-#papers a {
+a.util {
   font-family: Consolas;
   color: #757575;
   text-decoration: none;

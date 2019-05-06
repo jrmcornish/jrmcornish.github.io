@@ -19,9 +19,9 @@ function paperToHTML(paper) {
 
   let paperInfo = `<em>${(paper.paperinfo || "Preprint")}, ${paper.year.toString()}</em>`;
 
-  let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
+  let contentLink = `<a href="${contentURL}" target="_blank" class="util">${contentType}</a>`;
 
-  let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink">bib</a>`
+  let bibLink = `<a href="#" id="toggle-${paper.id}" class="util">bib</a>`
 
   return `
     <li>
@@ -144,19 +144,22 @@ $.getJSON("papers.json", function(papers) {
 
     $("#papers").html(`
       <ul id="sort-options">
-        <li><a href="#" id="sort-by-year"></a></li>
-        <li><a href="#" id="sort-by-type"></a></li>
+        <li><a href="#" id="sort-by-year" class="util"></a></li>
+        <li><a href="#" id="sort-by-type" class="util"></a></li>
       </ul>
       <ul id="paperlist">
       </ul>
     `);
 
-    ["year", "type"].forEach((sortBy) => {
-      $(`#sort-by-${sortBy}`).on("click", (e) => {
-        e.preventDefault();
-        renderBy(sortBy);
-      })
-    })
+    $(`#sort-by-year`).on("click", (e) => {
+      e.preventDefault();
+      renderBy("year");
+    });
+
+    $(`#sort-by-type`).on("click", (e) => {
+      e.preventDefault();
+      renderBy("type");
+    });
 
     renderBy("year");
   });
@@ -197,3 +200,13 @@ pages.forEach(function (page) {
 });
 
 navTo(pages[1]);
+
+/////// 
+
+$("#email").on("click", (e) => {
+  e.preventDefault();
+  let address = ["rcornish", "@", "robots.", "ox.", "ac.", "uk"].join("");
+  $("#email")
+    .html(address)
+    .attr("href", `mailto:${address}`);
+})

@@ -71,15 +71,24 @@ function cmpByType(paper1, paper2) {
   return order.indexOf(paper1.type) - order.indexOf(paper2.type);
 }
 
-function papersStableSort(cmp) {
-  const papers = window.papersData;
-  papers.sort((a, b) => {
-    const result = window.papersSortDir * cmp(a, b);
+function stableSort(arr, cmp, sortDir) {
+  arr.sort((a, b) => {
+    const result = sortDir * cmp(a, b);
     if (result === 0) {
-      return papers.indexOf(a) - papers.indexOf(b);
+      return arr.indexOf(a) - arr.indexOf(b);
     }
     return result;
   });
+}
+
+// Can only copy from visible elements, so we use this hack
+// See here: https://stackoverflow.com/questions/22581345/click-button-copy-to-clipboard-using-jquery#answer-30905277
+function copyToClipboard(text) {
+  var $temp = $("<textarea>");
+  $("body").append($temp);
+  $temp.val(text).select();
+  document.execCommand("copy");
+  $temp.remove();
 }
 
 function renderPapers() {
@@ -92,8 +101,8 @@ function renderPapers() {
     altCmp = cmpByYear;
   }
 
-  papersStableSort(altCmp);
-  papersStableSort(cmp);
+  stableSort(window.papersData, altCmp, 1);
+  stableSort(window.papersData, cmp, window.papersSortDir);
 
   $("#paperlist").html(papersToHTML(window.papersData, window.papersSortBy, cmp, window.window.papersSortDir));
 
@@ -112,18 +121,9 @@ function renderPapers() {
     const id = elt.id.replace(/-bib$/, "");
     $(elt).on("click", ".copy-bib a", e => {
       e.preventDefault();
-      const data = $(elt).find("pre").html();
-
-      // Can only copy from visible elements, so we use this hack
-      // See here: https://stackoverflow.com/questions/49110041/how-can-i-copy-pre-tag-code-into-clipboard-in-html#answer-49110531
-      const textArea = document.createElement('textarea');
-      textArea.style.position = "absolute";
-      textArea.style.left = "-100%";
-      textArea.textContent = data;
-      document.body.append(textArea);
-      textArea.select();
-      document.execCommand("copy");
-    })
+      const text = $(elt).find("pre").html();
+      copyToClipboard($.trim(text));
+    });
   });
 }
 

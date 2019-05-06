@@ -21,7 +21,7 @@ function paperToHTML(paper) {
 
   let contentLink = `<a href="${contentURL}" target="_blank" class="util">${contentType}</a>`;
 
-  let bibLink = `<a href="#" id="toggle-${paper.id}" class="util">bib</a>`
+  let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink util">bib</a>`
 
   return `
     <li>
@@ -68,7 +68,6 @@ function cmpByType(paper1, paper2) {
   return order.indexOf(paper1.type) - order.indexOf(paper2.type);
 }
 
-// Could make a generic stable sort
 function papersStableSort(cmp) {
   let papers = window.papersData;
   papers.sort((a, b) => {
@@ -199,7 +198,7 @@ pages.forEach(function (page) {
   });
 });
 
-navTo(pages[1]);
+navTo(pages[0]);
 
 /////// 
 

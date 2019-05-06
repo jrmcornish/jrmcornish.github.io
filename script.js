@@ -106,10 +106,10 @@ function renderPapers() {
 function renderSortLinks() {
   ["year", "type"].forEach((sortBy) => {
     let text = `Sort by ${sortBy}`;
-    if (window.papersSortBy === sortBy) {
-      text += " " + (window.papersSortDir > 0 ? "↓" : "↑");
-    }
-    $(`#sort-by-${sortBy}`).html(text);
+    let arrow = window.papersSortDir > 0 ? "↓" : "↑";
+    let visibility = window.papersSortBy === sortBy ? "visible" : "hidden";
+    let html = `${text} <div style="visibility: ${visibility}; display: inline-block;">${arrow}</div>`
+    $(`#sort-by-${sortBy}`).html(html);
   });
 }
 

@@ -17,7 +17,7 @@ function paperToHTML(paper) {
     contentURL = `pdf/${paper.id}.pdf`
   }
 
-  let paperInfo = `<em>${(paper.paperinfo || "Preprint")}, ${paper.year.toString()}</em>`;
+  let paperInfo = `<em>${(paper.pubinfo || "Preprint")}, ${paper.year.toString()}</em>`;
 
   let contentLink = `<a href="${contentURL}" target="_blank" class="util">${contentType}</a>`;
 

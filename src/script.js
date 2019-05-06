@@ -34,7 +34,10 @@ function paperToHTML(paper) {
         <li>${contentLink}</li>
         <li>${bibLink}</li>
       </ul>
-      <div id="${paper.id}-bib" class="codeblock">
+      <div id="${paper.id}-bib" class="bib-data">
+        <div class="copy-bib">
+          <a href="#" class="util">Copy to clipboard</a>
+        </div>
         <code><pre>${paper.bib}</pre></code>
       </div>
     </li>
@@ -94,12 +97,33 @@ function renderPapers() {
 
   $("#paperlist").html(papersToHTML(window.papersData, window.papersSortBy, cmp, window.window.papersSortDir));
 
-  $("#paperlist .bibLink").each(function (i, elt) {
-    let id = elt.id.replace("toggle-", "");
-    elt.addEventListener("click", function(e) {
+  $("#paperlist .bibLink").each((i, elt) => {
+    const id = elt.id.replace(/^toggle-/, "");
+
+    $(`#${id}-bib`).hide();
+
+    elt.addEventListener("click", e => {
       e.preventDefault();
       $(`#${id}-bib`).toggle();
     });
+  });
+
+  $(".bib-data").each((i, elt) => {
+    const id = elt.id.replace(/-bib$/, "");
+    $(elt).on("click", ".copy-bib a", e => {
+      e.preventDefault();
+      const data = $(elt).find("pre").html();
+
+      // Can only copy from visible elements, so we use this hack
+      // See here: https://stackoverflow.com/questions/49110041/how-can-i-copy-pre-tag-code-into-clipboard-in-html#answer-49110531
+      const textArea = document.createElement('textarea');
+      textArea.style.position = "absolute";
+      textArea.style.left = "-100%";
+      textArea.textContent = data;
+      document.body.append(textArea);
+      textArea.select();
+      document.execCommand("copy");
+    })
   });
 }
 

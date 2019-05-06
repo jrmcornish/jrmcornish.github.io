@@ -144,15 +144,6 @@ $.getJSON("papers.json", function(papers) {
   addBibLinks(papers, 0, (papers) => {
     window.papersData = papers;
 
-    $("#papers").html(`
-      <ul id="sort-options">
-        <li><a href="#" id="sort-by-year" class="util"></a></li>
-        <li><a href="#" id="sort-by-type" class="util"></a></li>
-      </ul>
-      <ul id="paperlist">
-      </ul>
-    `);
-
     $(`#sort-by-year`).on("click", (e) => {
       e.preventDefault();
       updatePapers("year");

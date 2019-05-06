@@ -104,12 +104,16 @@ function renderPapers() {
 }
 
 function renderSortLinks() {
+  let arrow = window.papersSortDir > 0 ? "↓" : "↑";
+
   ["year", "type"].forEach((sortBy) => {
-    let text = `Sort by ${sortBy}`;
-    let arrow = window.papersSortDir > 0 ? "↓" : "↑";
-    let visibility = window.papersSortBy === sortBy ? "visible" : "hidden";
-    let html = `${text} <div style="visibility: ${visibility}; display: inline-block;">${arrow}</div>`
-    $(`#sort-by-${sortBy}`).html(html);
+    let div = $(`#sort-by-${sortBy} .sort-arrow`);
+    div.html(arrow);
+    if (window.papersSortBy === sortBy) {
+      div.css("visibility", "visible");
+    } else {
+      div.css("visibility", "hidden");
+    }
   });
 }
 
@@ -187,7 +191,8 @@ function navTo(page) {
 }
 
 pages.forEach(function (page) {
-  page.navLink.addEventListener("click", function () {
+  page.navLink.addEventListener("click", function (e) {
+    e.preventDefault();
     navTo(page);
   });
 });

@@ -113,14 +113,17 @@ function renderSortLinks() {
   });
 }
 
-function renderBy(sortBy) {
+function setSortBy(sortBy) {
   if (window.papersSortBy === sortBy) {
     window.papersSortDir *= -1;
   } else {
     window.papersSortDir = 1;
   }
   window.papersSortBy = sortBy;
+}
 
+function updatePapers(sortBy) {
+  setSortBy(sortBy);
   renderSortLinks();
   renderPapers();
 }
@@ -152,15 +155,15 @@ $.getJSON("papers.json", function(papers) {
 
     $(`#sort-by-year`).on("click", (e) => {
       e.preventDefault();
-      renderBy("year");
+      updatePapers("year");
     });
 
     $(`#sort-by-type`).on("click", (e) => {
       e.preventDefault();
-      renderBy("type");
+      updatePapers("type");
     });
 
-    renderBy("year");
+    updatePapers("year");
   });
 });
 

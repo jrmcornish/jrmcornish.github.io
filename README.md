@@ -10,3 +10,4 @@
 
 - Generate bibtex serverside rather than fetching through jquery
 - sitemap (maybe - once multiple pages is setup)
+- 404 page

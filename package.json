@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "rm -rf build; cp -r src build; babel src --out-dir build",
-    "deploy": "rsync -avx build/ rcornish@robots.ox.ac.uk:~/WWW/ --delete"
+    "build": "rsync --archive --verbose --one-file-system  --delete src/ build/; babel src --out-dir build",
+    "deploy": "rsync --archive --verbose --one-file-system --delete build/ rcornish@robots.ox.ac.uk:~/WWW/"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

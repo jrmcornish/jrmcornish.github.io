@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "rm -rf build; cp -r src build; babel src --out-dir build",
+    "deploy": "rsync -avx build/ rcornish@robots.ox.ac.uk:~/WWW/ --delete"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

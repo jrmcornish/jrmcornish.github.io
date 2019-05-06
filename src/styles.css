@@ -7,6 +7,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Removes dotted border */
+a, a:active, a:focus {
+  outline: none;
+}
+
 header h1 {
   text-align: center;
   margin: 1.5em 0;
@@ -42,10 +47,8 @@ nav a {
   text-decoration: none;
   text-align: center;
   color: black;
-  background-color: white;
 }
 
-/* TODO: Make match other grays */
 nav a.selected {
   background-color: #e0e0e0;
 }
@@ -145,9 +148,9 @@ a.util {
 }
 
 .copy-bib {
-background-color: #e0e0e0;
-text-align: right;
-padding-right: 6px;
+  background-color: #e0e0e0;
+  text-align: right;
+  padding-right: 6px;
 }
 
 pre {

@@ -2,7 +2,7 @@ body {
   max-width: 500px;
   padding: 0 20px;
   margin: 0 auto;
-  font-family: 'Karla', sans-serif;
+  font-family: Karla, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -106,7 +106,7 @@ footer {
 }
 
 a.util {
-  font-family: Consolas;
+  font-family: Inconsolata, monospace;
   color: #757575;
   text-decoration: none;
 }

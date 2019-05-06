@@ -1,11 +1,11 @@
-{
-  "papers": [
+[
     {
       "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
       "id": "cornish2019scalable",
       "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
       "year": 2019,
-      "arxiv": "1901.09881"
+      "arxiv": "1901.09881",
+      "type": "preprint"
     },
     {
       "title": "Online Learning Rate Adaptation with Hypergradient Descent",
@@ -13,7 +13,8 @@
       "authors": ["me", "Atılım Güneş Baydin", "David Rubio", "Mark Schmidt", "Frank Wood"],
       "year": 2018,
       "pubinfo": "International Conference on Learning Representations (ICLR)",
-      "arxiv": "1703.04782"
+      "arxiv": "1703.04782",
+      "type": "conference"
     },
     {
       "title": "On Nesting Monte Carlo Estimators",
@@ -21,28 +22,32 @@
       "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Andrew Warrington", "Frank Wood"],
       "year": 2018,
       "pubinfo": "International Conference on Machine Learning (ICML)",
-      "arxiv": "1709.06181"
+      "arxiv": "1709.06181",
+      "type": "conference"
     },
     {
       "title": "Analyzing Array Manipulating Programs by Program Transformation",
       "id": "cornish2015analyzing",
       "authors": ["me", "Graeme Gange", "Jorge Navas", "Peter Schachte", "Harald Søndergaard", "Peter Stuckey"],
       "year": 2015,
-      "pubinfo": "Logic-Based Program Synthesis and Transformation: Proceedings of the 24th International Symposium"
+      "pubinfo": "Logic-Based Program Synthesis and Transformation: Proceedings of the 24th International Symposium",
+      "type": "conference"
     },
     {
       "title": "Efficient exact inference in discrete Anglican programs",
       "id": "cornish2017efficient",
       "authors": ["me", "Frank Wood", "Hongseok Yang"],
       "year": 2017,
-      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)"
+      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)",
+      "type": "workshop"
     },
     {
       "title": "Towards a testable notion of generalisation for generative adversarial networks",
       "id": "cornish2017towards",
       "authors": ["me", "Frank Wood", "Honseok Yang"],
       "year": 2017,
-      "pubinfo": "NIPS workshop on Deep Learning: Bridging Theory and Practice"
+      "pubinfo": "NIPS workshop on Deep Learning: Bridging Theory and Practice",
+      "type": "workshop"
     },
     {
       "title": "On the Pitfalls of Nested Monte Carlo",
@@ -50,13 +55,14 @@
       "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Frank Wood"],
       "year": 2016,
       "pubinfo": "NIPS Workshop on Advances in Approximate Bayesian Inference",
-      "arxiv": 1612.00951
+      "arxiv": 1612.00951,
+      "type": "workshop"
     },
     {
       "title": "Submodular Optimization via Reinforcement Learning",
       "id": "cornish2016submodular",
       "authors": ["me", "Philip Torr"],
-      "year": 2016
+      "year": 2016,
+      "type": "preprint"
     }
-  ]
-}
+]

@@ -1,75 +1,101 @@
 "use strict";
 
-function papersJSONToHTML(papers) {
-  // Stable sort papers by year
-  papers.papers.sort((a, b) => {
-    let result = b.year - a.year;
+function paperToHTML(paper) {
+  let authorText = paper.authors.map(function(authorId) {
+      if (authorId === "me") {
+        return `<em class="me">Rob Cornish</em>`;
+      } else {
+        return authorId;
+      }
+    }).join(", ") 
+
+  let contentType = paper.arxiv ? "arxiv" : "pdf";
+  let contentURL;
+  if (contentType === "arxiv") {
+    contentURL = `https://arxiv.org/abs/${paper.arxiv}`;
+  } else {
+    contentURL = `pdf/${paper.id}.pdf`
+  }
+
+  let paperInfo = `<em>${(paper.paperinfo || "Preprint")}, ${paper.year.toString()}</em>`;
+
+  let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
+
+  let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink">bib</a>`
+
+  return `
+    <li>
+      <ul>
+        <li><strong>${paper.title}</strong></li>
+        <li>${authorText}</li>
+        <li>${paperInfo}</li>
+      </ul>
+      <ul class="paperlinks">
+        <li>${contentLink}</li>
+        <li>${bibLink}</li>
+      </ul>
+      <div id="${paper.id}-bib" class="codeblock">
+        <code><pre>${paper.bib}</pre></code>
+      </div>
+    </li>
+  `;
+}
+
+// sortDir > 0 to sort papers descending by year
+function papersToHTML(papers, sortBy, cmp, sortDir) {
+  let [html, _] = papers.reduce(function([html, prevPaper], paper) {
+    let sortVal = paper[sortBy];
+    let prevSortVal = prevPaper === undefined ? undefined : prevPaper[sortBy];
+
+    let result = "";
+    if (prevSortVal === undefined || sortDir * cmp(prevPaper, paper) < 0) {
+      result += `<h2>${sortVal}</h2>`
+    }
+    result += paperToHTML(paper);
+
+    return [html + result, paper];
+  }, ["", undefined]);
+
+  return html;
+}
+
+function cmpByYear(paper1, paper2) {
+  return paper2.year - paper1.year;
+}
+
+function cmpByType(paper1, paper2) {
+  let order = ["conference", "workshop", "preprint"]
+  return order.indexOf(paper1.type) - order.indexOf(paper2.type);
+}
+
+// Could make a generic stable sort
+function papersStableSort(cmp) {
+  let papers = window.papersData;
+  papers.sort((a, b) => {
+    let result = window.papersSortDir * cmp(a, b);
     if (result === 0) {
-      return papers.papers.indexOf(a) - papers.papers.indexOf(b);
+      return papers.indexOf(a) - papers.indexOf(b);
     }
     return result;
-  })
-
-  var inner = papers.papers.map(function(paper) {
-
-    let authorText = paper.authors.map(function(authorId) {
-        if (authorId === "me") {
-          return `<em class="me">Rob Cornish</em>`;
-        } else {
-          return authorId;
-        }
-      }).join(", ") 
-
-    let contentType = paper.arxiv ? "arxiv" : "pdf";
-    let contentURL;
-    if (contentType === "arxiv") {
-      contentURL = `https://arxiv.org/abs/${paper.arxiv}`;
-    } else {
-      contentURL = `pdf/${paper.id}.pdf`
-    }
-
-    let paperInfo = `<em>${(paper.paperinfo || "Preprint")}, ${paper.year.toString()}</em>`;
-
-    let contentLink = `<a href="${contentURL}" target="_blank">${contentType}</a>`;
-
-    let bibLink = `<a href="#" id="toggle-${paper.id}" class="bibLink">bib</a>`
-
-    return `
-      <li>
-        <ul>
-          <li><strong>${paper.title}</strong></li>
-          <li>${authorText}</li>
-          <li>${paperInfo}</li>
-        </ul>
-        <ul class="paperlinks">
-          <li>${contentLink}</li>
-          <li>${bibLink}</li>
-        </ul>
-        <div id="${paper.id}-bib" class="codeblock">
-          <code><pre>${paper.bib}</pre></code>
-        </div>
-      </li>
-    `;
-  }).join("");
-  return `<ul id="paperlist">${inner}</ul>`;
+  });
 }
 
-function addBibLinks(papers, i, cont) {
-  $.get(`bib/${papers.papers[i].id}.bib`, function(text) {
-    papers.papers[i].bib = text;
-    i += 1;
-    if (i < papers.papers.length) {
-      addBibLinks(papers, i, cont);
-    } else {
-      cont(papers);
-    }
-  }, `text`)
-}
+function renderPapers() {
+  let cmp, altCmp;
+  if (window.papersSortBy === "year") {
+    cmp = cmpByYear;
+    altCmp = cmpByType;
+  } else {
+    cmp = cmpByType;
+    altCmp = cmpByYear;
+  }
 
-function renderPapers(papers) {
-  $("main#papers").html(papersJSONToHTML(papers));
+  papersStableSort(altCmp);
+  papersStableSort(cmp);
 
-  $("ul#paperlist .bibLink").each(function (i, elt) {
+  $("#paperlist").html(papersToHTML(window.papersData, window.papersSortBy, cmp, window.window.papersSortDir));
+
+  $("#paperlist .bibLink").each(function (i, elt) {
     let id = elt.id.replace("toggle-", "");
     elt.addEventListener("click", function(e) {
       e.preventDefault();
@@ -78,9 +104,62 @@ function renderPapers(papers) {
   });
 }
 
+function renderSortLinks() {
+  ["year", "type"].forEach((sortBy) => {
+    let text = `Sort by ${sortBy}`;
+    if (window.papersSortBy === sortBy) {
+      text += " " + (window.papersSortDir > 0 ? "↓" : "↑");
+    }
+    $(`#sort-by-${sortBy}`).html(text);
+  });
+}
+
+function renderBy(sortBy) {
+  if (window.papersSortBy === sortBy) {
+    window.papersSortDir *= -1;
+  } else {
+    window.papersSortDir = 1;
+  }
+  window.papersSortBy = sortBy;
+
+  renderSortLinks();
+  renderPapers();
+}
+
+function addBibLinks(papers, i, cont) {
+  $.get(`bib/${papers[i].id}.bib`, function(text) {
+    papers[i].bib = text;
+    i += 1;
+    if (i < papers.length) {
+      addBibLinks(papers, i, cont);
+    } else {
+      cont(papers);
+    }
+  }, `text`)
+}
 
 $.getJSON("papers.json", function(papers) {
-  addBibLinks(papers, 0, renderPapers);
+  addBibLinks(papers, 0, (papers) => {
+    window.papersData = papers;
+
+    $("#papers").html(`
+      <ul id="sort-options">
+        <li><a href="#" id="sort-by-year"></a></li>
+        <li><a href="#" id="sort-by-type"></a></li>
+      </ul>
+      <ul id="paperlist">
+      </ul>
+    `);
+
+    ["year", "type"].forEach((sortBy) => {
+      $(`#sort-by-${sortBy}`).on("click", (e) => {
+        e.preventDefault();
+        renderBy(sortBy);
+      })
+    })
+
+    renderBy("year");
+  });
 });
 
 ////////

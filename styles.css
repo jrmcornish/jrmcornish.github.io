@@ -91,9 +91,29 @@ footer {
   color: gray;
 }
 
+#papers h2 {
+  text-transform: capitalize;
+}
+
+#papers a {
+  font-family: Consolas;
+  color: #757575;
+  text-decoration: none;
+}
+
+#papers ul#sort-options {
+  text-align: left;
+}
+
+#papers ul#sort-options li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 #papers ul {
   list-style: none;
   padding: 0;
+  text-align: left;
 }
 
 #paperlist > li {
@@ -110,12 +130,6 @@ footer {
   margin-right: 10px;
 }
 
-.paperlinks a {
-  font-family: Consolas;
-  color: #757575;
-  text-decoration: none;
-}
-
 .codeblock {
   padding: 16px;
   background: #f0f0f0;
@@ -128,7 +142,7 @@ footer {
   text-align: left;
 }
 
-#paperlist pre {
+pre {
   margin: 0;
   font-family: Consolas;
   font-size: .75em;

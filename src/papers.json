@@ -5,7 +5,7 @@
       "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
       "year": 2019,
       "arxiv": "1901.09881",
-      "type": "preprint"
+      "type": "conference"
     },
     {
       "title": "Online Learning Rate Adaptation with Hypergradient Descent",

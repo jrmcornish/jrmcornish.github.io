@@ -1,10 +1,19 @@
 [
     {
+      "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",
+      "id": "cornish2019robust",
+      "authors": ["me", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "pubinfo": "ICML workshop on Uncertainty and Robustness in Deep Learning",
+      "type": "workshop"
+    },
+    {
       "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
       "id": "cornish2019scalable",
       "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
       "year": 2019,
       "arxiv": "1901.09881",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
       "type": "conference"
     },
     {

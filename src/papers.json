@@ -19,7 +19,7 @@
     {
       "title": "Online Learning Rate Adaptation with Hypergradient Descent",
       "id": "baydin2018online",
-      "authors": ["me", "Atılım Güneş Baydin", "David Rubio", "Mark Schmidt", "Frank Wood"],
+      "authors": ["Atılım Güneş Baydin", "me", "David Rubio", "Mark Schmidt", "Frank Wood"],
       "year": 2018,
       "pubinfo": "International Conference on Learning Representations (ICLR)",
       "arxiv": "1703.04782",

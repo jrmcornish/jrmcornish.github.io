@@ -43,19 +43,19 @@
       "type": "conference"
     },
     {
-      "title": "Efficient exact inference in discrete Anglican programs",
-      "id": "cornish2017efficient",
-      "authors": ["me", "Frank Wood", "Hongseok Yang"],
-      "year": 2017,
-      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)",
-      "type": "workshop"
-    },
-    {
       "title": "Towards a testable notion of generalisation for generative adversarial networks",
       "id": "cornish2017towards",
       "authors": ["me", "Frank Wood", "Honseok Yang"],
       "year": 2017,
       "pubinfo": "NIPS workshop on Deep Learning: Bridging Theory and Practice",
+      "type": "workshop"
+    },
+    {
+      "title": "Efficient exact inference in discrete Anglican programs",
+      "id": "cornish2017efficient",
+      "authors": ["me", "Frank Wood", "Hongseok Yang"],
+      "year": 2017,
+      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)",
       "type": "workshop"
     },
     {

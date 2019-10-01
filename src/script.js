@@ -101,7 +101,7 @@ function renderPapers() {
     altCmp = cmpByYear;
   }
 
-  stableSort(window.papersData, altCmp, 1);
+  // stableSort(window.papersData, altCmp, 1);
   stableSort(window.papersData, cmp, window.papersSortDir);
 
   $("#paperlist").html(papersToHTML(window.papersData, window.papersSortBy, cmp, window.window.papersSortDir));

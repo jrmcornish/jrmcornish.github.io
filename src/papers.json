@@ -4,7 +4,9 @@
       "id": "cornish2019localised",
       "authors": ["me", "Anthony L. Caterini", "George Deligiannidis", "Arnaud Doucet"],
       "year": 2019,
-      "type": "preprint"
+      "type": "preprint",
+      "arxiv": "1909.13833",
+      "code": "https://github.com/jrmcornish/lgf"
     },
     {
       "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",

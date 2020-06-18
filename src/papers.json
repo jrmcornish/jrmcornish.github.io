@@ -1,12 +1,12 @@
 [
     {
-      "title": "Localised Generative Flows",
+      "title": "Relaxing Bijectivity Constraints with Continuously Indexed Normalising Flows",
       "id": "cornish2019localised",
       "authors": ["me", "Anthony L. Caterini", "George Deligiannidis", "Arnaud Doucet"],
-      "year": 2019,
-      "type": "preprint",
-      "arxiv": "1909.13833",
-      "code": "https://github.com/jrmcornish/lgf"
+      "year": 2020,
+      "type": "conference",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1909.13833"
     },
     {
       "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",

@@ -1,12 +1,24 @@
 [
     {
+      "title": "Variational Inference with Continuously-Indexed Normalizing Flows",
+      "id": "caterini2020variational",
+      "authors": ["Anthony L. Caterini", "me", "Dino Sejdinovic", "Arnaud Doucet"],
+      "year": 2020,
+      "type": "workshop",
+      "pubinfo": "ICML Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models",
+      "arxiv": "2007.05426",
+      "slides": true
+    },
+    {
       "title": "Relaxing Bijectivity Constraints with Continuously Indexed Normalising Flows",
-      "id": "cornish2019localised",
+      "id": "cornish2019relaxing",
       "authors": ["me", "Anthony L. Caterini", "George Deligiannidis", "Arnaud Doucet"],
       "year": 2020,
       "type": "conference",
       "pubinfo": "International Conference on Machine Learning (ICML)",
-      "arxiv": "1909.13833"
+      "arxiv": "1909.13833",
+      "code": "https://github.com/jrmcornish/cif",
+      "slides": true
     },
     {
       "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",
@@ -23,7 +35,9 @@
       "year": 2019,
       "arxiv": "1901.09881",
       "pubinfo": "International Conference on Machine Learning (ICML)",
-      "type": "conference"
+      "type": "conference",
+      "slides": true,
+      "code": "https://github.com/pjcv/smh"
     },
     {
       "title": "Online Learning Rate Adaptation with Hypergradient Descent",

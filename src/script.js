@@ -25,6 +25,8 @@ function paperToHTML(paper) {
 
   const codeItem = paper.code ? `<li><a href="${paper.code}" target="_blank" class="util">code</a></li>` : "";
 
+  const slidesItem = paper.slides ? `<li><a href="pdf/${paper.id}_slides.pdf" target="_blank" class="util">slides</a></li>` : "";
+
   return `
     <li>
       <ul>
@@ -36,6 +38,7 @@ function paperToHTML(paper) {
         <li>${contentLink}</li>
         <li>${bibLink}</li>
         ${codeItem}
+        ${slidesItem}
       </ul>
       <div id="${paper.id}-bib" class="bib-data">
         <div class="copy-bib">

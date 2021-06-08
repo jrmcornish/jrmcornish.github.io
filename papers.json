@@ -1,0 +1,100 @@
+[
+    {
+      "title": "Variational Inference with Continuously-Indexed Normalizing Flows",
+      "id": "caterini2020variational",
+      "authors": ["Anthony L. Caterini", "me", "Dino Sejdinovic", "Arnaud Doucet"],
+      "year": 2020,
+      "type": "workshop",
+      "pubinfo": "ICML Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models",
+      "arxiv": "2007.05426",
+      "slides": true
+    },
+    {
+      "title": "Relaxing Bijectivity Constraints with Continuously Indexed Normalising Flows",
+      "id": "cornish2019relaxing",
+      "authors": ["me", "Anthony L. Caterini", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2020,
+      "type": "conference",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1909.13833",
+      "code": "https://github.com/jrmcornish/cif",
+      "slides": true
+    },
+    {
+      "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",
+      "id": "cornish2019robust",
+      "authors": ["me", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "pubinfo": "ICML workshop on Uncertainty and Robustness in Deep Learning",
+      "type": "workshop"
+    },
+    {
+      "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
+      "id": "cornish2019scalable",
+      "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "arxiv": "1901.09881",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "type": "conference",
+      "slides": true,
+      "code": "https://github.com/pjcv/smh"
+    },
+    {
+      "title": "Online Learning Rate Adaptation with Hypergradient Descent",
+      "id": "baydin2018online",
+      "authors": ["Atılım Güneş Baydin", "me", "David Rubio", "Mark Schmidt", "Frank Wood"],
+      "year": 2018,
+      "pubinfo": "International Conference on Learning Representations (ICLR)",
+      "arxiv": "1703.04782",
+      "type": "conference"
+    },
+    {
+      "title": "On Nesting Monte Carlo Estimators",
+      "id": "rainforth2018nesting",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Andrew Warrington", "Frank Wood"],
+      "year": 2018,
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1709.06181",
+      "type": "conference"
+    },
+    {
+      "title": "Analyzing Array Manipulating Programs by Program Transformation",
+      "id": "cornish2015analyzing",
+      "authors": ["me", "Graeme Gange", "Jorge Navas", "Peter Schachte", "Harald Søndergaard", "Peter Stuckey"],
+      "year": 2015,
+      "pubinfo": "Logic-Based Program Synthesis and Transformation: Proceedings of the 24th International Symposium",
+      "type": "conference"
+    },
+    {
+      "title": "Towards a testable notion of generalisation for generative adversarial networks",
+      "id": "cornish2017towards",
+      "authors": ["me", "Frank Wood", "Honseok Yang"],
+      "year": 2017,
+      "pubinfo": "NIPS workshop on Deep Learning: Bridging Theory and Practice",
+      "type": "workshop"
+    },
+    {
+      "title": "Efficient exact inference in discrete Anglican programs",
+      "id": "cornish2017efficient",
+      "authors": ["me", "Frank Wood", "Hongseok Yang"],
+      "year": 2017,
+      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)",
+      "type": "workshop"
+    },
+    {
+      "title": "On the Pitfalls of Nested Monte Carlo",
+      "id": "rainforth2016pitfalls",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Frank Wood"],
+      "year": 2016,
+      "pubinfo": "NIPS Workshop on Advances in Approximate Bayesian Inference",
+      "arxiv": 1612.00951,
+      "type": "workshop"
+    },
+    {
+      "title": "Submodular Optimization via Reinforcement Learning",
+      "id": "cornish2016submodular",
+      "authors": ["me", "Philip Torr"],
+      "year": 2016,
+      "type": "preprint"
+    }
+]

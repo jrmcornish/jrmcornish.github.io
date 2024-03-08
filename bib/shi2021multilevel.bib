@@ -1,0 +1,15 @@
+@InProceedings{shi2021multilevel,
+  title = 	 { On Multilevel Monte Carlo Unbiased Gradient Estimation for Deep Latent Variable Models },
+  author =       {Shi, Yuyang and Cornish, Rob},
+  booktitle = 	 {Proceedings of The 24th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {3925--3933},
+  year = 	 {2021},
+  editor = 	 {Banerjee, Arindam and Fukumizu, Kenji},
+  volume = 	 {130},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--15 Apr},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v130/shi21d/shi21d.pdf},
+  url = 	 {http://proceedings.mlr.press/v130/shi21d.html},
+  abstract = 	 { Standard variational schemes for training deep latent variable models rely on biased gradient estimates of the target objective. Techniques based on the Evidence Lower Bound (ELBO), and tighter variants obtained via importance sampling, produce biased gradient estimates of the true log-likelihood. The family of Reweighted Wake-Sleep (RWS) methods further relies on a biased estimator of the inference objective, which biases training of the encoder also. In this work, we show how Multilevel Monte Carlo (MLMC) can provide a natural framework for debiasing these methods with two different estimators. We prove rigorously that this approach yields unbiased gradient estimators with finite variance under reasonable conditions. Furthermore, we investigate methods that can reduce variance and ensure finite variance in practice. Finally, we show empirically that the proposed unbiased estimators outperform IWAE and other debiasing method on a variety of applications at the same expected cost. }
+}

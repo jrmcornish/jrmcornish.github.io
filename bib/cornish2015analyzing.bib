@@ -1,0 +1,32 @@
+@inproceedings{cornish2015analyzing,
+  author    = {J. Robert M. Cornish and Graeme Gange and Jorge Navas 
+		and Peter Schachte and Harald S{\o}ndergaard and 
+		Peter J. Stuckey},
+  title     = {Analyzing Array Manipulating Programs by Program 
+		Transformation},
+  editor    = {M. Proietti and H. Seki},
+  booktitle = {Logic-Based Program Synthesis and Transformation:
+                Proceedings of the 24th International Symposium},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8981},
+  pages     = {3--20},
+  publisher = {Springer International},
+  year      = {2015},
+  isbn      = {978-3-319-17821-9},
+  abstract  = {We explore a transformational approach to the problem 
+		of verifying simple array-manipulating programs.  
+		Traditionally, verification of such programs requires 
+		intricate analysis machinery to reason with universally
+		quantified statements about symbolic array segments, 
+		such as ``every data item stored in the segment A[i] 
+		to A[j] is equal to the corresponding item stored in the
+		segment B[i] to B[j].'' We define a simple abstract 
+		machine which allows for set-valued variables and we 
+		show how to translate programs with array operations to
+		array-free code for this machine.  For the purpose of 
+		program analysis, the translated program remains faithful
+		to the semantics of array manipulation.  Based on our 
+		implementation in LLVM, we evaluate the approach with
+		respect to its ability to extract useful invariants and 
+		the cost in terms of code size.}
+}

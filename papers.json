@@ -1,0 +1,195 @@
+[
+  {
+      "title": "A categorical account of the Metropolis-Hastings algorithm",
+      "id": "cornish2026categorical",
+      "authors": ["me", "Andi Q. Wang"],
+      "year": 2026,
+      "type": "preprint",
+      "arxiv": "2601.22911"
+  },
+  {
+      "title": "Eilenberg-Moore Categories of Markov Monads",
+      "id": "cornish2025eilenberg",
+      "authors": ["me"],
+      "year": 2025,
+      "type": "workshop",
+      "pubinfo": "Applied Category Theory (ACT) 2025 talk"
+  },
+  {
+      "title": "Neural Network Symmetrisation in Concrete Settings",
+      "id": "cornish2024neural",
+      "authors": ["me"],
+      "year": 2024,
+      "type": "workshop",
+      "pubinfo": "NeurIPS workshop on Symmetry and Geometry in Neural Representations (NeurReps)",
+      "arxiv": "2412.09469"
+  },
+  {
+      "title": "SymDiff: Equivariant Diffusion via Stochastic Symmetrisation",
+      "id": "zhang2024symdiff",
+      "authors": ["Leo Zhang", "Kianoosh Ashouritaklimi", "Yee Whye Teh", "me"],
+      "year": 2025,
+      "type": "conference",
+      "pubinfo": "International Conference on Learning Representations (ICLR)",
+      "code": "https://github.com/leozhangML/SymDiff",
+      "arxiv": "2410.06262"
+  },
+  {
+      "title": "Stochastic Neural Network Symmetrisation in Markov Categories",
+      "id": "cornish2024stochastic",
+      "authors": ["me"],
+      "year": 2024,
+      "type": "preprint",
+      "pubinfo": "Preprint (presented at Applied Category Theory (ACT) 2024)",
+      "arxiv": "2406.11814",
+      "talk": "https://youtube.com/watch?v=ozN4zLEUCgs&t=1820s",
+      "code": "https://github.com/jrmcornish/stoch_sym",
+      "poster": true
+   },
+   {
+      "title": "Causal Falsification of Digital Twins",
+      "id": "cornish2023causal",
+      "authors": ["me", "Muhammad Faaiz Taufiq", "Arnaud Doucet", "Chris Holmes"],
+      "year": 2023,
+      "type": "preprint",
+      "arxiv": "2301.07210",
+      "slides": true
+   },
+   {
+      "title": "Marginal Density Ratio for Off-Policy Evaluation in Contextual Bandits",
+      "id": "taufiq2023marginal",
+      "authors": ["Muhammad Faaiz Taufiq", "Arnaud Doucet", "me", "Jean-Francois Ton"],
+      "year": 2023,
+      "type": "conference",
+      "pubinfo": "Neural Information Processing Systems (NeurIPS)",
+      "arxiv": "2312.01457",
+      "slides": false
+   },
+   {
+      "title": "Conformal Off-Policy Prediction in Contextual Bandits",
+      "id": "taufiq2022conformal",
+      "authors": ["Muhammad Faaiz Taufiq", "Jean-Francois Ton", "me", "Yee Whye Teh", "Arnaud Doucet"],
+      "year": 2022,
+      "type": "conference",
+      "pubinfo": "Neural Information Processing Systems (NeurIPS)",
+      "arxiv": "2206.04405",
+      "slides": false
+   },
+   {
+      "title": "Variational Inference with Continuously-Indexed Normalizing Flows",
+      "id": "caterini2021variational",
+      "authors": ["Anthony L. Caterini", "me", "Dino Sejdinovic", "Arnaud Doucet"],
+      "year": 2021,
+      "type": "conference",
+      "pubinfo": "Conference on Uncertainty in Artificial Intelligence (UAI)",
+      "arxiv": "2007.05426",
+      "slides": true
+    },
+    {
+      "title": "On Multilevel Monte Carlo Unbiased Gradient Estimation for Deep Latent Variable Models",
+      "id": "shi2021multilevel",
+      "authors": ["Yuyang Shi", "me"],
+      "year": 2021,
+      "type": "conference",
+      "pubinfo": "International Conference on Artificial Intelligence and Statistics (AISTATS)",
+      "slides": false
+    },
+    {
+      "title": "Deep Generative Missingness Pattern-Set Mixture Models",
+      "id": "ghalebikesabi2021deep",
+      "authors": ["Sahra Ghalebikesabi", "me", "Chris Holmes", "Luke Kelly"],
+      "year": 2021,
+      "type": "conference",
+      "pubinfo": "International Conference on Artificial Intelligence and Statistics (AISTATS)",
+      "arxiv": "2103.03532",
+      "slides": false
+    },
+    {
+      "title": "Relaxing Bijectivity Constraints with Continuously Indexed Normalising Flows",
+      "id": "cornish2020relaxing",
+      "authors": ["me", "Anthony L. Caterini", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2020,
+      "type": "conference",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1909.13833",
+      "code": "https://github.com/jrmcornish/cif",
+      "slides": true
+    },
+    {
+      "title": "Robust Out-of-Sample Uncertainty for Neural Networks via Confidence Densities",
+      "id": "cornish2019robust",
+      "authors": ["me", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "pubinfo": "ICML workshop on Uncertainty and Robustness in Deep Learning",
+      "type": "workshop"
+    },
+    {
+      "title": "Scalable Metropolis-Hastings for Exact Bayesian Inference with Large Datasets",
+      "id": "cornish2019scalable",
+      "authors": ["me", "Paul Vanetti", "Alexandre Bouchard-Côté", "George Deligiannidis", "Arnaud Doucet"],
+      "year": 2019,
+      "arxiv": "1901.09881",
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "type": "conference",
+      "slides": true,
+      "code": "https://github.com/pjcv/smh"
+    },
+    {
+      "title": "Online Learning Rate Adaptation with Hypergradient Descent",
+      "id": "baydin2018online",
+      "authors": ["Atılım Güneş Baydin", "me", "David Rubio", "Mark Schmidt", "Frank Wood"],
+      "year": 2018,
+      "pubinfo": "International Conference on Learning Representations (ICLR)",
+      "arxiv": "1703.04782",
+      "type": "conference"
+    },
+    {
+      "title": "On Nesting Monte Carlo Estimators",
+      "id": "rainforth2018nesting",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Andrew Warrington", "Frank Wood"],
+      "year": 2018,
+      "pubinfo": "International Conference on Machine Learning (ICML)",
+      "arxiv": "1709.06181",
+      "type": "conference"
+    },
+    {
+      "title": "Analyzing Array Manipulating Programs by Program Transformation",
+      "id": "cornish2015analyzing",
+      "authors": ["me", "Graeme Gange", "Jorge Navas", "Peter Schachte", "Harald Søndergaard", "Peter Stuckey"],
+      "year": 2015,
+      "pubinfo": "Logic-Based Program Synthesis and Transformation: Proceedings of the 24th International Symposium",
+      "type": "conference"
+    },
+    {
+      "title": "Towards a testable notion of generalisation for generative adversarial networks",
+      "id": "cornish2017towards",
+      "authors": ["me", "Frank Wood", "Honseok Yang"],
+      "year": 2017,
+      "pubinfo": "NIPS workshop on Deep Learning: Bridging Theory and Practice",
+      "type": "workshop"
+    },
+    {
+      "title": "Efficient exact inference in discrete Anglican programs",
+      "id": "cornish2017efficient",
+      "authors": ["me", "Frank Wood", "Hongseok Yang"],
+      "year": 2017,
+      "pubinfo": "POPL workshop on Probabilistic Programming Semantics (PPS)",
+      "type": "workshop"
+    },
+    {
+      "title": "On the Pitfalls of Nested Monte Carlo",
+      "id": "rainforth2016pitfalls",
+      "authors": ["Tom Rainforth", "me", "Hongseok Yang", "Frank Wood"],
+      "year": 2016,
+      "pubinfo": "NIPS Workshop on Advances in Approximate Bayesian Inference",
+      "arxiv": 1612.00951,
+      "type": "workshop"
+    },
+    {
+      "title": "Submodular Optimization via Reinforcement Learning",
+      "id": "cornish2016submodular",
+      "authors": ["me", "Philip Torr"],
+      "year": 2016,
+      "type": "preprint"
+    }
+]
